@@ -54,22 +54,22 @@ public:
     static double max(double, double);
 
     //点在线上
-    static bool IsPointOnLine(double, double, double, double, double, double);
+    static bool is_point_online(double, double, double, double, double, double);
 
     //点在区域内
-    static bool IsIntersect(double, double, double, double, double, double, double, double);
+    static bool is_intersect(double, double, double, double, double, double, double, double);
 
     //点在多边形内的判断
-    static bool PointInPolygon2D(double, double, const std::vector<Vec2d> &POL);
+    static bool point_in_polygon2D(double, double, const std::vector<Vec2d> &POL);
 
     //读取坐标信息
-    static int Readtxt();
+    static int read_gps_txt();
     //点与顶点距离不超过某一个范围
 
-    static bool Isinlimit(double, double, double, double);
+    static bool is_inlimit(double, double, double, double);
 
     //调用判断算法
-    static bool judgementoflocation(double, double);
+    static bool judgement_of_location(double, double);
 
 
 protected:

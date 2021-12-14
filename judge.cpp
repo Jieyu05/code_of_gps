@@ -19,7 +19,7 @@ double Judge::max(double x, double y) {
 }
 
 //判断点在线段上：：线段和是否相等
-bool Judge::IsPointOnLine(double px0, double py0, double px1, double py1, double px2, double py2) {
+bool Judge::is_point_online(double, double, double, double, double, double) {}(double, double, double, double, double, double) {}(double px0, double py0, double px1, double py1, double px2, double py2) {
     bool flag = false;
     if (px0 >= min(px1, px2) && px0 <= max(px1, px2) && py0 >= min(py1, py2) && py0 <= max(py1, py2)) {
         double s1 = (px1 - px0) * (px1 - px0) + (py1 - py0) * (py1 - py0);
@@ -34,7 +34,7 @@ bool Judge::IsPointOnLine(double px0, double py0, double px1, double py1, double
 
 //判断两线段相交
 bool
-Judge::IsIntersect(double px1, double py1, double px2, double py2, double px3, double py3, double px4, double py4) {
+Judge::is_intersect(double, double, double, double, double, double, double, double) {}(double px1, double py1, double px2, double py2, double px3, double py3, double px4, double py4) {
     bool flag = false;
     if (min(px1, px2) <= max(px3, px4) && min(px3, px4) <= max(px1, px2) && min(py1, py2) <= max(py3, py4)
         && min(py3, py4) <= max(py1, py2)) {
@@ -51,7 +51,7 @@ Judge::IsIntersect(double px1, double py1, double px2, double py2, double px3, d
 }
 
 //判断点在多边形内
-bool Judge::PointInPolygon2D(double x, double y, const std::vector<Vec2d> &POL) {
+bool Judge::point_in_polygon2D(double, double, const std::vector<Vec2d> &POL) {}(double x, double y, const std::vector<Vec2d> &POL) {
     bool isInside = false;
     int count = 0;
 
@@ -110,7 +110,7 @@ bool Judge::PointInPolygon2D(double x, double y, const std::vector<Vec2d> &POL) 
 }
 
 //点与顶点距离不超过某一个范围
-bool Judge::Isinlimit(double x1, double y1, double x2, double y2) {
+bool Judge::is_inlimit(double x1, double y1, double x2, double y2) {
     bool flag = false;
     double r;
     r = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
@@ -126,7 +126,7 @@ bool Judge::Isinlimit(double x1, double y1, double x2, double y2) {
 }
 
 //调用判断算法
-bool Judge::judgementoflocation(double x, double y) {
+bool Judge::judgement_of_location(double x, double y) {
     bool flag = false;
     std::cout << "jieyu\n";
     double m = x;
@@ -138,7 +138,7 @@ bool Judge::judgementoflocation(double x, double y) {
     std::vector<Vec2d> POL2;
     std::vector<Vec2d> POL3;
     if (Len1 == 0 || Len2 == 0 || Len3 == 0) {
-        Readtxt();
+        read_gps_txt();
     }
     //构建大陆地区
     POL.push_back(Vec2d(Num1[0], Num2[0]));
@@ -158,14 +158,14 @@ bool Judge::judgementoflocation(double x, double y) {
         POL3.push_back(Vec2d(Num5[i], Num6[i]));
     }
     POL3.push_back(Vec2d(Num5[0], Num6[0]));
-    if (PointInPolygon2D(m, n, POL) || PointInPolygon2D(m, n, POL2) ||
-        PointInPolygon2D(m, n, POL3)) {
+    if (point_in_polygon2D(m, n, POL) || point_in_polygon2D(m, n, POL2) ||
+        point_in_polygon2D(m, n, POL3)) {
         flag=true;
     }
     return flag;
 }
 
-int Judge::Readtxt() {
+int Judge::read_gps_txt() {
 
 
     std::ifstream input1("/update/GPSTXT/mainlandlong.txt");
